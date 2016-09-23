@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
+        //MARK: hardcoded
         var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"), time: 3, steps : ["servir y comer"])
         recipes.append(receta)
         recipes.append(receta)
@@ -63,7 +63,7 @@ class ViewController: UITableViewController {
     // rellenamos celdas de la tabla
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        let receta = recipes[indexPath.row]
+        let receta : Receta = recipes[indexPath.row]
         
         //Crear identificador desde 'storyboard > identify inspector' para la celda : UiTableViewCell
         let cellId = "recipeCell"
@@ -75,9 +75,13 @@ class ViewController: UITableViewController {
         
         cell.recipeCellName.text = receta.name
         cell.recipeCellImage.image = receta.image
-        cell.recipeCellTime.text = " \(receta.time) horas"
+        if let timeReceta = receta.time{
+            cell.recipeCellTime.text = "⏱ \(timeReceta) horas"
+        }else{
+            cell.recipeCellTime.text = "⏱ 0 horas"
+        }
         if let pasos = receta.steps{
-            cell.recipeCellStep.text = String(pasos.count)
+            cell.recipeCellStep.text = "Pasos: " + String(pasos.count)
         }else{
             cell.recipeCellStep.text = "único paso"
         }

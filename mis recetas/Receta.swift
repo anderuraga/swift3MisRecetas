@@ -27,7 +27,6 @@ class Receta : NSObject{
         self.image = image
         self.time = time
         self.steps = steps
-        
     }
     
 }
