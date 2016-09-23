@@ -16,12 +16,12 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
        
         
-        var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"))
+        var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"), time: 3, steps : ["servir y comer"])
         recipes.append(receta)
         recipes.append(receta)
         recipes.append(receta)
         
-        receta = Receta(name: "Txori Platano", image: #imageLiteral(resourceName: "platano"))
+        receta = Receta(name: "Txori Platano", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
         recipes.append(receta)
         recipes.append(receta)
         recipes.append(receta)
@@ -70,9 +70,18 @@ class ViewController: UITableViewController {
         
         //la gestion de las celdas las realiza swift y reutiliza 'ReusableCell' las que no se ven para crear nuevas
         // encolando y desencolando las celdas necesarios 'deque'
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = receta.name
-        cell.imageView?.image = receta.image
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)  as! RecipeCellCustom
+        
+        
+        cell.recipeCellName.text = receta.name
+        cell.recipeCellImage.image = receta.image
+        cell.recipeCellTime.text = " \(receta.time) horas"
+        if let pasos = receta.steps{
+            cell.recipeCellStep.text = String(pasos.count)
+        }else{
+            cell.recipeCellStep.text = "único paso"
+        }
+       
         
         return cell
         

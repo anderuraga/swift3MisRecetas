@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A4BAC451D950CF00036A051 /* Receta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4BAC441D950CF00036A051 /* Receta.swift */; };
+		6ACDB78E1D956AE300A3AC47 /* RecipeCellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACDB78D1D956AE300A3AC47 /* RecipeCellCustom.swift */; };
 		6ADFF3771D942EDA00E34818 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFF3761D942EDA00E34818 /* AppDelegate.swift */; };
 		6ADFF3791D942EDA00E34818 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADFF3781D942EDA00E34818 /* ViewController.swift */; };
 		6ADFF37C1D942EDA00E34818 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ADFF37A1D942EDA00E34818 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		6A4BAC441D950CF00036A051 /* Receta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Receta.swift; sourceTree = "<group>"; };
+		6ACDB78D1D956AE300A3AC47 /* RecipeCellCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCellCustom.swift; sourceTree = "<group>"; };
 		6ADFF3731D942EDA00E34818 /* mis recetas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mis recetas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ADFF3761D942EDA00E34818 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ADFF3781D942EDA00E34818 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				6ADFF37D1D942EDA00E34818 /* Assets.xcassets */,
 				6ADFF37F1D942EDA00E34818 /* LaunchScreen.storyboard */,
 				6ADFF3821D942EDA00E34818 /* Info.plist */,
+				6ACDB78D1D956AE300A3AC47 /* RecipeCellCustom.swift */,
 			);
 			path = "mis recetas";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACDB78E1D956AE300A3AC47 /* RecipeCellCustom.swift in Sources */,
 				6A4BAC451D950CF00036A051 /* Receta.swift in Sources */,
 				6ADFF3791D942EDA00E34818 /* ViewController.swift in Sources */,
 				6ADFF3771D942EDA00E34818 /* AppDelegate.swift in Sources */,

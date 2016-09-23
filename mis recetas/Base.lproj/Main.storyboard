@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,18 +12,60 @@
         <scene sceneID="pqf-UH-Mn5">
             <objects>
                 <tableViewController id="Gkt-JW-9Vr" customClass="ViewController" customModule="mis_recetas" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="evj-MX-hbf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="evj-MX-hbf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="o58-M7-Jnv">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="o58-M7-Jnv" customClass="RecipeCellCustom" customModule="mis_recetas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o58-M7-Jnv" id="6mN-WB-SQl">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IcG-Xs-8IL">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="IcG-Xs-8IL" secondAttribute="height" multiplier="74:87" id="Qvc-Jf-f8p"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mbG-0u-WgC">
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOT-dh-T5u">
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1F-nN-2zo">
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                                    <color key="textColor" red="0.47306528141361259" green="0.47306528141361259" blue="0.47306528141361259" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aC-PY-A1B">
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IcG-Xs-8IL" firstAttribute="leading" secondItem="6mN-WB-SQl" secondAttribute="leading" constant="8" id="3ND-cK-fCD"/>
+                                        <constraint firstItem="IcG-Xs-8IL" firstAttribute="top" secondItem="6mN-WB-SQl" secondAttribute="top" constant="8" id="FbS-dl-Cdt"/>
+                                        <constraint firstItem="mbG-0u-WgC" firstAttribute="leading" secondItem="IcG-Xs-8IL" secondAttribute="trailing" constant="8" id="NWM-qz-AQc"/>
+                                        <constraint firstItem="IcG-Xs-8IL" firstAttribute="top" secondItem="6mN-WB-SQl" secondAttribute="top" constant="8" id="OSL-Gx-ZBr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mbG-0u-WgC" secondAttribute="bottom" constant="8" id="TG1-Xc-KFJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="IcG-Xs-8IL" secondAttribute="bottom" constant="8" id="k6f-uU-2gd"/>
+                                        <constraint firstItem="mbG-0u-WgC" firstAttribute="top" secondItem="6mN-WB-SQl" secondAttribute="topMargin" constant="8" id="lLH-AJ-h6w"/>
+                                        <constraint firstItem="IcG-Xs-8IL" firstAttribute="leading" secondItem="6mN-WB-SQl" secondAttribute="leading" constant="8" id="oCc-cR-ZBK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="recipeCellImage" destination="IcG-Xs-8IL" id="Som-Qk-1SQ"/>
+                                    <outlet property="recipeCellName" destination="aOT-dh-T5u" id="gvv-Qa-p7o"/>
+                                    <outlet property="recipeCellStep" destination="6aC-PY-A1B" id="b3H-wR-HHI"/>
+                                    <outlet property="recipeCellTime" destination="l1F-nN-2zo" id="QmI-07-eeG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkF-Pv-s1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="575"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="574.36281859070471"/>
         </scene>
     </scenes>
 </document>
