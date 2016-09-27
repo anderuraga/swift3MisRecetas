@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
         recipes.append(receta)
         recipes.append(receta)
         
-        receta = Receta(name: "Txori Platano", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
+        receta = Receta(name: "Txori Platano Menuda Guarrdindongada∫", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
         recipes.append(receta)
         recipes.append(receta)
         recipes.append(receta)
@@ -72,9 +72,12 @@ class ViewController: UITableViewController {
         // encolando y desencolando las celdas necesarios 'deque'
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)  as! RecipeCellCustom
         
+        cell.recipeCellImage.image = receta.image
+        cell.recipeCellImage.layer.cornerRadius = 42.0
+        cell.recipeCellImage.clipsToBounds = true
+        
         
         cell.recipeCellName.text = receta.name
-        cell.recipeCellImage.image = receta.image
         cell.recipeCellTime.text = " \(receta.time) horas"
         if let pasos = receta.steps{
             cell.recipeCellStep.text = String(pasos.count)
@@ -82,6 +85,7 @@ class ViewController: UITableViewController {
             cell.recipeCellStep.text = "único paso"
         }
        
+        
         
         return cell
         
