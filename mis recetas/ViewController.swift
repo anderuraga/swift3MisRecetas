@@ -18,28 +18,13 @@ class ViewController: UITableViewController {
         //MARK: hardcoded
         var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"), time: 3, steps : ["servir y comer"])
         recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
+        
         
         receta = Receta(name: "Txori Platano Menuda Guarrdindongada∫", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
         recipes.append(receta)
         
         receta  = Receta(name: "Pechugas", image : #imageLiteral(resourceName: "pechugas"))
         recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-        recipes.append(receta)
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,8 +85,21 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    //MARK: editingStyle - Eliminar una celda al desplzarla
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            recipes.remove(at: indexPath.row)
+            
+            //es mas optimo que usar self.tableView.reloadData
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
+
     
-    //MARK - UITableViewDelegate al seleccionar la celda de la tabla
+    
+    //MARK: - UITableViewDelegate al seleccionar la celda de la tabla
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let receta = recipes[indexPath.row]
@@ -133,6 +131,7 @@ class ViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    
     
     
     
