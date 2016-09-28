@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
         recipes.append(receta)
         recipes.append(receta)
         
-        receta = Receta(name: "Txori Platano", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
+        receta = Receta(name: "Txori Platano Menuda Guarrdindongada∫", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
         recipes.append(receta)
         recipes.append(receta)
         recipes.append(receta)
@@ -72,6 +72,10 @@ class ViewController: UITableViewController {
         // encolando y desencolando las celdas necesarios 'deque'
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)  as! RecipeCellCustom
         
+        cell.recipeCellImage.image = receta.image
+        cell.recipeCellImage.layer.cornerRadius = 42.0
+        cell.recipeCellImage.clipsToBounds = true
+        
         
         cell.recipeCellName.text = receta.name
         cell.recipeCellImage.image = receta.image
@@ -80,17 +84,57 @@ class ViewController: UITableViewController {
         }else{
             cell.recipeCellTime.text = "⏱ 0 horas"
         }
+
         if let pasos = receta.steps{
             cell.recipeCellStep.text = "Pasos: " + String(pasos.count)
         }else{
             cell.recipeCellStep.text = "único paso"
         }
-       
         
+        if ( receta.isFavourite ){
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
+ 
         return cell
+    }
+    
+    
+    //MARK - UITableViewDelegate al seleccionar la celda de la tabla
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let receta = recipes[indexPath.row]
+        
+        //Alerta
+        let alertController = UIAlertController(title: "", message: "Valora esta receta", preferredStyle: .alert)
+        
+        
+        //Acciones para alerta
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil )
+        alertController.addAction(cancelAction)
+        
+        var favouriteTile = "Favorito"
+        var favouriteStyle = UIAlertActionStyle.default
+        if (receta.isFavourite){
+            favouriteTile = "Ya no me gusta"
+            favouriteStyle = UIAlertActionStyle.destructive
+        }
+        
+        let actionFavourite = UIAlertAction(title: favouriteTile, style: favouriteStyle) { (action) in
+            receta.isFavourite = !receta.isFavourite
+            //refrescar datos de la tabla
+            self.tableView.reloadData()
+        }
+        
+        alertController.addAction(actionFavourite)
+        
+        //mostrar alerta
+        self.present(alertController, animated: true, completion: nil)
         
     }
+    
+    
     
     
 }

@@ -16,10 +16,12 @@ class Receta : NSObject{
     var time : Int!
     var ingredient: [String]!
     var steps : [String]?
+    var isFavourite = false
     
     init( name: String, image : UIImage) {
         self.name = name
         self.image = image
+        self.isFavourite = false;
     }
     
     init( name: String, image : UIImage, time: Int, steps: [String]?) {
@@ -27,6 +29,7 @@ class Receta : NSObject{
         self.image = image
         self.time = time
         self.steps = steps
+        self.isFavourite = false;
     }
     
 }
