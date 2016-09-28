@@ -33,7 +33,7 @@ class ViewController: UITableViewController {
     }
 
     
-    //MARK: - UITableViewDataSource
+    //MARK: - UITableViewDataSources
   
     // section == columna
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,7 +45,7 @@ class ViewController: UITableViewController {
         return recipes.count
     }
     
-    // rellenamos celdas de la tabla
+    //rellenamos celdas de la tabla
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let receta : Receta = recipes[indexPath.row]
@@ -58,7 +58,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)  as! RecipeCellCustom
         
         cell.recipeCellImage.image = receta.image
-        cell.recipeCellImage.layer.cornerRadius = 42.0
+        cell.recipeCellImage.layer.cornerRadius = 55.0
         cell.recipeCellImage.clipsToBounds = true
         
         
@@ -85,7 +85,7 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    //MARK: editingStyle - Eliminar una celda al desplzarla
+    //editingStyle - Eliminar una celda al desplzarla
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -96,10 +96,38 @@ class ViewController: UITableViewController {
         }
         
     }
-
+    
+    //editingActionForRowAt - Acciones para las celas
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let recipe = self.recipes[indexPath.row]
+        
+        //accion compartir : Crear cuenta Twitter o Facebook en el emulador
+        let shareAction = UITableViewRowAction(style: .default, title: "Compartir") { (action, indexPath) in
+            
+            let shareActionText = "Me ha gustado esta receta \(recipe.name!) en APP Recetas"
+            
+            //mostrar actividad compartir
+            let activityController = UIActivityViewController(activityItems: [shareActionText, recipe.image], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+        }
+        shareAction.backgroundColor = UIColor(colorLiteralRed: 30.0/255.0, green: 164.0/255.0, blue: 253.0/255.0, alpha: 1.0)
+        
+        
+        //accion Borrar
+        let deleteAction = UITableViewRowAction(style: .default, title: "Eliminar") { (action, indexPath) in
+            self.recipes.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        
+        return [shareAction, deleteAction]
+    }
     
     
-    //MARK: - UITableViewDelegate al seleccionar la celda de la tabla
+    //MARK: - UITableViewDelegates
+    
+    //didSelectRowAt seleccionar la celda de la tabla
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let receta = recipes[indexPath.row]
