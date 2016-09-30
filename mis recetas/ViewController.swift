@@ -129,7 +129,8 @@ class ViewController: UITableViewController {
     
     //didSelectRowAt seleccionar la celda de la tabla
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       
+        /*
         let receta = recipes[indexPath.row]
         
         //Alerta
@@ -157,9 +158,23 @@ class ViewController: UITableViewController {
         
         //mostrar alerta
         self.present(alertController, animated: true, completion: nil)
+      */
         
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if ( segue.identifier == "segueRecipeDetail" ){
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedRecipe = self.recipes[indexPath.row]
+                let destinationViewController = segue.destination as! DetailController
+                destinationViewController.recipe = selectedRecipe
+            }
+            
+        }
+        
+    }
     
     
     
