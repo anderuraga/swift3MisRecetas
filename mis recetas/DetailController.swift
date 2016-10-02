@@ -13,10 +13,12 @@ class DetailController: UIViewController {
     
     var recipe : Receta!
     @IBOutlet weak var imageRecipe: UIImageView!
+    @IBOutlet weak var recipeLabelName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageRecipe.image = self.recipe.image
+        self.recipeLabelName.text = self.recipe.name
     }
     
     override func didReceiveMemoryWarning() {
