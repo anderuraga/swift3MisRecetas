@@ -14,7 +14,7 @@ class Receta : NSObject{
     var name : String!
     var image : UIImage!
     var time : Int!
-    var ingredient: [String]!
+    var ingredients: [String]!
     var steps : [String]?
     var isFavourite = false
     
