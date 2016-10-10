@@ -17,6 +17,9 @@ class DetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageRecipe.image = self.recipe.image
+        
+        //Nombre de la receta en Menu Navegación
+        self.title = self.recipe.name
 
     }
     
@@ -25,6 +28,10 @@ class DetailController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Ocultar barra de estado
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     @IBAction func close ( segue : UIStoryboardSegue ){
         print("funcion close")
