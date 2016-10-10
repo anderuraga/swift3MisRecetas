@@ -19,11 +19,15 @@ class ViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
        
         //MARK: hardcoded
+        var ingredientes = ["patatas","huevos","aceite","sal","cebolla"]
         var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"), time: 3, steps : ["servir y comer"])
+        receta.ingredients = ingredientes
         recipes.append(receta)
         
         
-        receta = Receta(name: "Txori Platano Menuda Guarrdindongada∫", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano","sacar contenido","rellenar con chorizo"])
+        receta = Receta(name: "Txori Platano Menuda Guarrdindongada∫", image: #imageLiteral(resourceName: "platano"), time: 3, steps : ["pelar platano con cuidado de no romper cascara","sacar contenido","rellenar con chorizo que previamente hemos freido un poco"])
+        ingredientes = ["platano","chorizo"]
+        receta.ingredients = ingredientes
         recipes.append(receta)
         
         receta  = Receta(name: "Pechugas", image : #imageLiteral(resourceName: "pechugas"))

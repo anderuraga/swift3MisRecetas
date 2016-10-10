@@ -11,7 +11,8 @@ import UIKit
 class RecipeDetailViewCell : UITableViewCell{
     
    
+   
     @IBOutlet weak var titulo: UILabel!
-    @IBOutlet weak var valor: UILabel!
     
+    @IBOutlet weak var valor: UILabel!
 }

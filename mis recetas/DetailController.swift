@@ -10,6 +10,9 @@ import UIKit
 
 class DetailController: UIViewController {
     
+    let seccionDetalle = 0
+    let seccionIngredientes = 1
+    let seccionPasos = 2
     
     var recipe : Receta!
     @IBOutlet weak var imageRecipe: UIImageView!
@@ -42,47 +45,107 @@ class DetailController: UIViewController {
 
 extension DetailController : UITableViewDataSource{
     
+    //Numero de Secciones: Detalle, Ingredientes y Pasos
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
+    //Celdas por seccion
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var numeroFileasEnSeccion = 0
+        
+        switch section {
+            case seccionDetalle:
+                numeroFileasEnSeccion = 3
+            case seccionIngredientes:
+                if let ingredientes = self.recipe.ingredients {
+                    numeroFileasEnSeccion = ingredientes.count
+                }else{
+                    numeroFileasEnSeccion = 1
+                }
+            
+            case seccionPasos:
+                if let pasos = self.recipe.steps {
+                    numeroFileasEnSeccion = pasos.count
+                }else{
+                    numeroFileasEnSeccion = 1
+                }
+            default:
+                numeroFileasEnSeccion = 0
+            }
+        return numeroFileasEnSeccion
+        
+    }
+    
+    //Rellenar la celda con valores
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCellRecipe", for: indexPath ) as! RecipeDetailViewCell
-         /*
-        switch indexPath.row {
-        case 0:
-            cell.titulo.text = "Nombre:"
-            cell.valor.text = self.recipe.name
-        case 1:
-            cell.titulo.text = "Tiempo:"
-            cell.valor.text = String(self.recipe.time) + " horas"
+        
+        
+        
+        switch indexPath.section {
+            //Detalles fijos
+            case seccionDetalle:
+                
+                switch indexPath.row {
+                    case 0:
+                        cell.titulo.text = "Nombre:"
+                        cell.valor.text = self.recipe.name
+                    case 1:
+                        cell.titulo.text = "Tiempo:"
+                        if let tiempo = self.recipe.time {
+                            cell.valor.text = "\(tiempo) minutos"
+                        }else{
+                           cell.valor.text = "Sin tiempo de preparación"
+                        }
+                    case 2:
+                        cell.titulo.text = "Favorita:"
+                        if self.recipe.isFavourite{
+                            cell.valor.text = "Si"
+                        }else{
+                            cell.valor.text = "No"
+                        }
+                    default:
+                        break
+                }
+           
+            case seccionIngredientes:
+                cell.titulo.text = ""
+                if let ingredientes = self.recipe.ingredients {
+                    cell.valor.text = ingredientes[indexPath.row]
+                }else{
+                    cell.valor.text = "Faltan ingredientes en la receta"
+                }
             
-       
-        case 2:
-            cell.titulo.text = "Pasos:"
-            var ingredientes = ""
-            for ingrediente in self.recipe.ingredient {
-                ingredientes = ingredientes + "\n" + ingrediente
+            case seccionPasos:
+                cell.titulo.text = ""
+                if let pasos = self.recipe.steps{
+                     cell.valor.text = pasos[indexPath.row]
+                }else{
+                    cell.valor.text = "sencillo y para toda la famillia"
+                }
+                
+                
+            default:
+                break
             }
-            cell.valor.text = ingredientes
-       
-        case 2:
-            cell.titulo.text = "Ingredientes:"
-            cell.valor.text = self.recipe.ingredient
-                 //TODO aumentar numberOfRowsInSection y rellenar resto de campos
-            
-        default:
-            break
-        }
-         */
-
         
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var titulo = ""
+        switch section {
+            case seccionIngredientes:
+                titulo = "Ingredientes"
+            case seccionPasos:
+                titulo = "Pasos"
+            default:
+                break
+        }
+        return titulo
     }
     
     
