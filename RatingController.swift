@@ -11,6 +11,7 @@ import UIKit
 class RatingController: UIViewController {
 
     @IBOutlet weak var backgorundImage: UIImageView!
+    var ratingSelected : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +33,23 @@ class RatingController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func ratingButtonCliked(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            ratingSelected = "dislike"
+        case 2:
+            ratingSelected = "good"
+        case 3:
+            ratingSelected = "great"
+        default:
+            break
+        }
+        
+        //Volver atras, forzar segue
+        performSegue(withIdentifier: "unwidToDetailController", sender: sender)
+        
     }
-    */
 
-}
+   }

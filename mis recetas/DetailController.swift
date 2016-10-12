@@ -16,6 +16,7 @@ class DetailController: UIViewController {
     
     var recipe : Receta!
     @IBOutlet weak var imageRecipe: UIImageView!
+    @IBOutlet weak var ratingButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,16 @@ class DetailController: UIViewController {
     
     //Accion para cerrar ventana modal que habrimos para hacer Rating Receta
     @IBAction func close ( segue : UIStoryboardSegue ){
-        print("funcion close")
+        
+        //mirar cual es el controlador que viene
+        if let ratingController = segue.source as? RatingController{
+            
+            if let valoracion = ratingController.ratingSelected {
+                let imagen = UIImage(named: valoracion)
+                self.ratingButton.setImage(imagen, for: .normal)
+            }
+        }
+        
     }
 
 
