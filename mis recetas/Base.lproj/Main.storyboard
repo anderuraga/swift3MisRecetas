@@ -200,11 +200,42 @@
                                     <segue destination="NgA-uV-0KP" kind="unwind" unwindAction="closeWithSegue:" id="h59-Uy-VIQ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-cA-yx1"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Te ha gutado esta receta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN6-Jj-jPr">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zHu-sj-drD">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-us-65u">
+                                        <state key="normal" backgroundImage="dislike"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQb-PF-d00">
+                                        <state key="normal" backgroundImage="good"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-Qm-kue">
+                                        <state key="normal" image="great"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rN6-Jj-jPr" firstAttribute="top" secondItem="h35-fV-CI6" secondAttribute="bottom" constant="50" id="8iP-Ug-8he"/>
+                            <constraint firstItem="zHu-sj-drD" firstAttribute="top" secondItem="QPW-w9-bsH" secondAttribute="bottom" constant="30" id="IsL-3p-2gC"/>
+                            <constraint firstItem="rN6-Jj-jPr" firstAttribute="leading" secondItem="01x-jq-L9S" secondAttribute="leading" id="IzL-Cr-0hL"/>
+                            <constraint firstItem="ZE5-i8-P1w" firstAttribute="top" secondItem="EdK-cA-yx1" secondAttribute="bottom" id="SEz-FD-f5I"/>
+                            <constraint firstAttribute="trailing" secondItem="rN6-Jj-jPr" secondAttribute="trailing" id="TTF-72-Eph"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EdK-cA-yx1" secondAttribute="trailing" constant="-20" id="WXN-fe-hXm"/>
+                            <constraint firstItem="zHu-sj-drD" firstAttribute="centerX" secondItem="01x-jq-L9S" secondAttribute="centerX" id="X74-rF-ihr"/>
+                            <constraint firstItem="zHu-sj-drD" firstAttribute="leading" secondItem="01x-jq-L9S" secondAttribute="leading" id="XbT-9w-nbD"/>
+                            <constraint firstItem="EdK-cA-yx1" firstAttribute="leading" secondItem="01x-jq-L9S" secondAttribute="leadingMargin" constant="-20" id="l1l-rE-cWo"/>
                             <constraint firstItem="QPW-w9-bsH" firstAttribute="trailing" secondItem="01x-jq-L9S" secondAttribute="trailingMargin" id="oLK-sW-eWe"/>
                             <constraint firstItem="QPW-w9-bsH" firstAttribute="top" secondItem="h35-fV-CI6" secondAttribute="bottom" constant="20" id="pnW-2r-lUf"/>
+                            <constraint firstItem="rN6-Jj-jPr" firstAttribute="centerX" secondItem="01x-jq-L9S" secondAttribute="centerX" id="sZY-os-Niq"/>
+                            <constraint firstItem="EdK-cA-yx1" firstAttribute="top" secondItem="h35-fV-CI6" secondAttribute="bottom" id="vCq-jE-KOH"/>
+                            <constraint firstAttribute="trailing" secondItem="zHu-sj-drD" secondAttribute="trailing" id="vTo-J9-566"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -233,6 +264,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="610" height="343"/>
+        <image name="dislike" width="128" height="128"/>
+        <image name="good" width="128" height="128"/>
+        <image name="great" width="128" height="128"/>
         <image name="rating" width="128" height="128"/>
     </resources>
 </document>

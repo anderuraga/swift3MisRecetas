@@ -37,7 +37,7 @@ class DetailController: UIViewController {
     }
     
     @IBAction func close ( segue : UIStoryboardSegue ){
-        print("funcion close")
+        //print("funcion close")
     }
 
 
