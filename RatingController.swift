@@ -10,10 +10,21 @@ import UIKit
 
 class RatingController: UIViewController {
 
+    @IBOutlet weak var backgorundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //efecto difumindao imagen de fondo
+        let blurEfect = UIBlurEffect(style: .dark)
+        let blurEfectView = UIVisualEffectView(effect: blurEfect)
+        //obtener todo el ancho pantalla
+        blurEfectView.frame = view.bounds
+        //aplicar el efecto mediante la nueva view creada
+        backgorundImage.addSubview(blurEfectView)
+        
+    
+    
     }
 
     override func didReceiveMemoryWarning() {

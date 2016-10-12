@@ -236,6 +236,9 @@
                             <constraint firstItem="EdK-cA-yx1" firstAttribute="top" secondItem="h35-fV-CI6" secondAttribute="bottom" id="vCq-jE-KOH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgorundImage" destination="EdK-cA-yx1" id="YeO-CD-BiC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpT-Tu-La0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NgA-uV-0KP" userLabel="Exit" sceneMemberID="exit"/>
