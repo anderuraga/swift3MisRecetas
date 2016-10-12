@@ -36,8 +36,9 @@ class DetailController: UIViewController {
         return true
     }
     
+    //Accion para cerrar ventana modal que habrimos para hacer Rating Receta
     @IBAction func close ( segue : UIStoryboardSegue ){
-        //print("funcion close")
+        print("funcion close")
     }
 
 
