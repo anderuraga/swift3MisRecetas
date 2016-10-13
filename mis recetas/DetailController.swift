@@ -52,7 +52,7 @@ class DetailController: UIViewController {
     }
 
 
-}
+}//end DetailController
 
 extension DetailController : UITableViewDataSource{
     
@@ -92,8 +92,6 @@ extension DetailController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCellRecipe", for: indexPath ) as! RecipeDetailViewCell
-        
-        
         
         switch indexPath.section {
             //Detalles fijos
@@ -160,7 +158,7 @@ extension DetailController : UITableViewDataSource{
     }
     
     
-}
+}//end extension DetailController : UITableViewDataSource
 
 extension DetailController : UITableViewDelegate{
     

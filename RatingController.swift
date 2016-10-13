@@ -23,9 +23,7 @@ class RatingController: UIViewController {
         blurEfectView.frame = view.bounds
         //aplicar el efecto mediante la nueva view creada
         backgorundImage.addSubview(blurEfectView)
-        
-    
-    
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +35,14 @@ class RatingController: UIViewController {
     
     @IBAction func ratingButtonCliked(_ sender: UIButton) {
         switch sender.tag {
-        case 1:
-            ratingSelected = "dislike"
-        case 2:
-            ratingSelected = "good"
-        case 3:
-            ratingSelected = "great"
-        default:
-            break
+            case 1:
+                ratingSelected = "dislike"
+            case 2:
+                ratingSelected = "good"
+            case 3:
+                ratingSelected = "great"
+            default:
+                break
         }
         
         //Volver atras, forzar segue

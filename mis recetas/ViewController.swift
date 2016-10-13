@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
        
         //MARK: hardcoded
-        var ingredientes = ["patatas","huevos","aceite","sal","cebolla"]
+        var ingredientes = ["patatas de la vera con ojitos y mas cosas para que estoocupe mas de dos lineas","huevos","aceite","sal","cebolla"]
         var receta = Receta(name: "Calabaza", image: #imageLiteral(resourceName: "calabaza"), time: 3, steps : ["servir y comer"])
         receta.ingredients = ingredientes
         recipes.append(receta)
